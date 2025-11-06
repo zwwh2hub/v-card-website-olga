@@ -137,7 +137,6 @@
           contactEmail: 'E-Mail',
           contactPhone: 'Telefon',
           shareButton: 'Kontakt teilen',
-          saveContactSuccess: 'Kontakt gespeichert! Die vCard wurde heruntergeladen.',
           saveContactError: 'Download fehlgeschlagen. Bitte versuche es erneut.',
           shareTitle: 'Digitale Visitenkarte \u2013 Dr. Olga Zeichel',
           shareText: 'Hier findest du die digitale Visitenkarte von Dr. Olga Zeichel.',
@@ -159,7 +158,6 @@
           contactEmail: 'E-Mail',
           contactPhone: 'Phone',
           shareButton: 'Share contact',
-          saveContactSuccess: 'Contact saved! The vCard has been downloaded.',
           saveContactError: 'Download failed. Please try again.',
           shareTitle: 'Digital Business Card \u2013 Dr. Olga Zeichel',
           shareText: 'Explore Dr. Olga Zeichel\u2019s digital business card.',
@@ -376,7 +374,6 @@
           var copy = getCopy();
           try {
             downloadVCard(contactCard, copy);
-            window.alert(copy.saveContactSuccess);
           } catch (err) {
             window.alert(copy.saveContactError);
           }
