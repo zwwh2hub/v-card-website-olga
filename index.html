@@ -32,7 +32,7 @@
       <h1 class="name" data-i18n="name">Dr. Olga Zeichel</h1>
       <p class="role">
         <span class="role-title" data-i18n="roleTitle">Projektmitarbeiterin</span>
-        <span aria-hidden="true" class="role-separator"></span>
+        <span aria-hidden="true" class="role-separator">|</span>
         <a href="https://www.ovgu.de/wasserstoff.html" target="_blank" rel="noreferrer noopener" data-i18n="roleLink">H<sub>2</sub>Hub in Sachsen-Anhalt, Magdeburg</a>
       </p>
       <p class="summary" data-i18n="summary">
@@ -97,6 +97,7 @@
       var themeToggle = document.querySelector('.theme-toggle');
       var languageToggle = document.querySelector('.language-toggle');
       var shareButton = document.querySelector('.share-button');
+      var saveContactButton = document.querySelector('.cta');
 
       var localeRefs = {
         name: document.querySelector('[data-i18n="name"]'),
@@ -107,6 +108,21 @@
         contactLinkedIn: document.querySelector('[data-i18n="contactLinkedIn"]'),
         contactEmail: document.querySelector('[data-i18n="contactEmail"]'),
         contactPhone: document.querySelector('[data-i18n="contactPhone"]')
+      };
+
+      var contactCard = {
+        fullName: 'Dr. Olga Zeichel',
+        nameParts: {
+          last: 'Zeichel',
+          first: 'Olga',
+          prefix: 'Dr.'
+        },
+        organization: 'H2Hub Sachsen-Anhalt',
+        title: 'Projektmitarbeiterin',
+        email: 'olga.zechiel@ovgu.de',
+        phone: '+49 391 675 7201',
+        website: 'https://www.ovgu.de/ZWW.html',
+        linkedin: 'https://de.linkedin.com/company/zentrum-f%C3%BCr-wissenschaftliche-weiterbildung-zww'
       };
 
       var translations = {
@@ -121,6 +137,8 @@
           contactEmail: 'E-Mail',
           contactPhone: 'Telefon',
           shareButton: 'Kontakt teilen',
+          saveContactSuccess: 'Kontakt gespeichert! Die vCard wurde heruntergeladen.',
+          saveContactError: 'Download fehlgeschlagen. Bitte versuche es erneut.',
           shareTitle: 'Digitale Visitenkarte \u2013 Dr. Olga Zeichel',
           shareText: 'Hier findest du die digitale Visitenkarte von Dr. Olga Zeichel.',
           shareCopySuccess: 'Link kopiert! Du kannst ihn jetzt teilen.',
@@ -141,6 +159,8 @@
           contactEmail: 'E-Mail',
           contactPhone: 'Phone',
           shareButton: 'Share contact',
+          saveContactSuccess: 'Contact saved! The vCard has been downloaded.',
+          saveContactError: 'Download failed. Please try again.',
           shareTitle: 'Digital Business Card \u2013 Dr. Olga Zeichel',
           shareText: 'Explore Dr. Olga Zeichel\u2019s digital business card.',
           shareCopySuccess: 'Link copied! You can share it now.',
@@ -253,6 +273,9 @@
           shareButton.setAttribute('aria-label', copy.shareButton);
           shareButton.setAttribute('title', copy.shareButton);
         }
+        if (saveContactButton) {
+          saveContactButton.setAttribute('title', copy.saveContact);
+        }
         updateLanguageToggle();
         updateThemeToggleLabels();
       }
@@ -281,6 +304,55 @@
         }
       }
 
+      function stripHtml(value) {
+        var temp = document.createElement('div');
+        temp.innerHTML = value || '';
+        return (temp.textContent || temp.innerText || '').trim();
+      }
+
+      function slugify(value) {
+        return (value || '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '') || 'contact';
+      }
+
+      function downloadVCard(contact, copy) {
+        var first = contact.nameParts.first || '';
+        var last = contact.nameParts.last || '';
+        var middle = contact.nameParts.middle || '';
+        var prefix = contact.nameParts.prefix || '';
+        var suffix = contact.nameParts.suffix || '';
+        var title = stripHtml(copy.roleTitle || contact.title || '');
+        var note = stripHtml(copy.summary || '');
+        var phone = (contact.phone || '').replace(/\s+/g, '');
+
+        var lines = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'N:' + [last, first, middle, prefix, suffix].join(';'),
+          'FN:' + (contact.fullName || (first + ' ' + last)).trim(),
+          title ? 'TITLE:' + title : null,
+          contact.organization ? 'ORG:' + contact.organization : null,
+          contact.email ? 'EMAIL;TYPE=WORK,INTERNET:' + contact.email : null,
+          phone ? 'TEL;TYPE=WORK,VOICE:' + phone : null,
+          contact.website ? 'URL:' + contact.website : null,
+          contact.linkedin ? 'X-SOCIALPROFILE;TYPE=linkedin:' + contact.linkedin : null,
+          note ? 'NOTE:' + note.replace(/\r?\n|\r/g, ' ') : null,
+          'END:VCARD'
+        ].filter(Boolean).join('\r\n') + '\r\n';
+
+        var blob = new Blob([lines], { type: 'text/vcard;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = slugify(contact.fullName || 'contact') + '.vcf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }
+
       if (shareButton) {
         shareButton.addEventListener('click', function () {
           var copy = getCopy();
@@ -295,6 +367,18 @@
             });
           } else {
             fallbackShare(copy);
+          }
+        });
+      }
+
+      if (saveContactButton) {
+        saveContactButton.addEventListener('click', function () {
+          var copy = getCopy();
+          try {
+            downloadVCard(contactCard, copy);
+            window.alert(copy.saveContactSuccess);
+          } catch (err) {
+            window.alert(copy.saveContactError);
           }
         });
       }
