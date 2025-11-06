@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digitale Visitenkarte</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light" data-lang="de">
+  <main class="page">
+    <section class="card">
+      <button class="theme-toggle" type="button" aria-label="Zum dunklen Modus wechseln">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5.5a1 1 0 0 1-1-1V2.75a1 1 0 0 1 2 0V4.5a1 1 0 0 1-1 1zM12 21.25a1 1 0 0 1-1-1V19.5a1 1 0 0 1 2 0v1.75a1 1 0 0 1-1 1zM5.5 12a1 1 0 0 1-1 1H2.75a1 1 0 0 1 0-2H4.5a1 1 0 0 1 1 1zm18 0a1 1 0 0 1-1 1h-1.75a1 1 0 0 1 0-2H22.5a1 1 0 0 1 1 1zM6.4 6.4a1 1 0 0 1-1.4 0L3.75 5.15a1 1 0 1 1 1.4-1.4L6.4 5a1 1 0 0 1 0 1.4zm13.85 13.85a1 1 0 0 1-1.4 0L17.6 19a1 1 0 1 1 1.4-1.4l1.25 1.25a1 1 0 0 1 0 1.4zM6.4 17.6 5.15 18.85a1 1 0 1 1-1.4-1.4L5 16.2a1 1 0 0 1 1.4 1.4zm13.85-13.85L19 6.4a1 1 0 1 1-1.4-1.4l1.25-1.25a1 1 0 0 1 1.4 1.4zM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 14.35a8.5 8.5 0 0 1-10.35-10.5 1 1 0 0 0-1.45-1.08A9.5 9.5 0 1 0 22.8 16.8a1 1 0 0 0-1.08-1.45c-.24.05-.48.07-.72.07z"/>
+        </svg>
+      </button>
+      <button class="language-toggle" type="button" aria-label="Sprache zu Englisch wechseln">EN</button>
+      <button class="share-button" type="button" aria-label="Kontakt teilen">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7a3.27 3.27 0 0 0 0-1.39l7.05-4.11a2.99 2.99 0 1 0-.81-1.29L8.1 10.02a3 3 0 1 0 0 3.96l7.11 4.15a3 3 0 1 0 2.79-1.05z"/>
+        </svg>
+      </button>
+      <div class="profile-photo">
+        <img src="assets/img/Olga_Zechiel.jpg" alt="Portrait of Dr. Olga Zeichel" />
+      </div>
+      <h1 class="name" data-i18n="name">Dr. Olga Zeichel</h1>
+      <p class="role">
+        <span class="role-title" data-i18n="roleTitle">Projektmitarbeiterin</span>
+        <span aria-hidden="true" class="role-separator">|</span>
+        <a href="https://www.ovgu.de/wasserstoff.html" target="_blank" rel="noreferrer noopener" data-i18n="roleLink">H<sub>2</sub>Hub in Sachsen-Anhalt, Magdeburg</a>
+      </p>
+      <p class="summary" data-i18n="summary">
+        Projektmitarbeiter, H<sub>2</sub>Hub in Sachsen-Anhalt - Wasserstoffausbildung und Industriepartnerschaften.
+      </p>
+      <button class="cta" type="button" data-i18n="saveContact">Kontakt speichern</button>
+      <ul class="contact-list">
+        <li>
+          <a href="https://de.linkedin.com/company/zentrum-f%C3%BCr-wissenschaftliche-weiterbildung-zww" target="_blank" rel="noreferrer noopener">
+            <span class="icon linkedin" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 8.75h3.96V21H3V8.75zm6.6 0h3.78v1.68h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.73 2.63 4.73 6.05V21h-3.96v-5.95c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.29 1.55-2.29 3.15V21H9.6V8.75z"/>
+              </svg>
+            </span>
+            <span class="details">
+              <strong data-i18n="contactLinkedIn">LinkedIn</strong>
+              <small>linkedin.com/in/zww-sachsen-anhalt</small>
+            </span>
+            <span class="open-icon" aria-hidden="true">&nearr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:olga.zechiel@ovgu.de">
+            <span class="icon email" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8l8 7 8-7v10z"/>
+              </svg>
+            </span>
+            <span class="details">
+              <strong data-i18n="contactEmail">E-Mail</strong>
+              <small>olga.zechiel@ovgu.de</small>
+            </span>
+            <span class="open-icon" aria-hidden="true">&nearr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="tel:+493916757201">
+            <span class="icon phone" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M6.62 10.79a15.09 15.09 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.59a1 1 0 0 1-.25 1.02l-2.2 2.18z"/>
+              </svg>
+            </span>
+            <span class="details">
+              <strong data-i18n="contactPhone">Telefon</strong>
+              <small>+49 391 675 7201</small>
+            </span>
+            <span class="open-icon" aria-hidden="true">&nearr;</span>
+          </a>
+        </li>
+      </ul>
+      <footer class="footer">
+        <a href="https://www.ovgu.de/ZWW.html" target="_blank" rel="noreferrer noopener">
+          www.ovgu.de/zww
+        </a>
+      </footer>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var docEl = document.documentElement;
+      var body = document.body;
+      var themeToggle = document.querySelector('.theme-toggle');
+      var languageToggle = document.querySelector('.language-toggle');
+      var shareButton = document.querySelector('.share-button');
+
+      var localeRefs = {
+        name: document.querySelector('[data-i18n="name"]'),
+        roleTitle: document.querySelector('[data-i18n="roleTitle"]'),
+        roleLink: document.querySelector('[data-i18n="roleLink"]'),
+        summary: document.querySelector('[data-i18n="summary"]'),
+        saveContact: document.querySelector('[data-i18n="saveContact"]'),
+        contactLinkedIn: document.querySelector('[data-i18n="contactLinkedIn"]'),
+        contactEmail: document.querySelector('[data-i18n="contactEmail"]'),
+        contactPhone: document.querySelector('[data-i18n="contactPhone"]')
+      };
+
+      var translations = {
+        de: {
+          documentTitle: 'Digitale Visitenkarte',
+          name: 'Dr. Olga Zeichel',
+          roleTitle: 'Projektmitarbeiterin',
+          roleLink: 'H<sub>2</sub>Hub in Sachsen-Anhalt, Magdeburg',
+          summary: 'Projektmitarbeiter, H<sub>2</sub>Hub in Sachsen-Anhalt - Wasserstoffausbildung und Industriepartnerschaften.',
+          saveContact: 'Kontakt speichern',
+          contactLinkedIn: 'LinkedIn',
+          contactEmail: 'E-Mail',
+          contactPhone: 'Telefon',
+          shareButton: 'Kontakt teilen',
+          shareTitle: 'Digitale Visitenkarte \u2013 Dr. Olga Zeichel',
+          shareText: 'Hier findest du die digitale Visitenkarte von Dr. Olga Zeichel.',
+          shareCopySuccess: 'Link kopiert! Du kannst ihn jetzt teilen.',
+          shareCopyFallback: 'Kopiere diesen Link manuell, um ihn zu teilen:',
+          themeToggleToLight: 'Zum hellen Modus wechseln',
+          themeToggleToDark: 'Zum dunklen Modus wechseln',
+          languageToggleToEnglish: 'Sprache zu Englisch wechseln',
+          languageToggleToGerman: 'Sprache zu Deutsch wechseln'
+        },
+        en: {
+          documentTitle: 'Digital Business Card',
+          name: 'Dr. Olga Zeichel',
+          roleTitle: 'Project Associate',
+          roleLink: 'H<sub>2</sub>Hub in Saxony-Anhalt, Magdeburg',
+          summary: 'Project Associate, H<sub>2</sub>Hub in Sachsen-Anhalt - hydrogen training & industry partnerships.',
+          saveContact: 'Save Contact',
+          contactLinkedIn: 'LinkedIn',
+          contactEmail: 'Email',
+          contactPhone: 'Phone',
+          shareButton: 'Share contact',
+          shareTitle: 'Digital Business Card \u2013 Dr. Olga Zeichel',
+          shareText: 'Explore Dr. Olga Zeichel\u2019s digital business card.',
+          shareCopySuccess: 'Link copied! You can share it now.',
+          shareCopyFallback: 'Copy this link manually to share it:',
+          themeToggleToLight: 'Switch to light mode',
+          themeToggleToDark: 'Switch to dark mode',
+          languageToggleToEnglish: 'Switch to English',
+          languageToggleToGerman: 'Switch to German'
+        }
+      };
+
+      function normaliseLanguage(value) {
+        return value === 'en' ? 'en' : 'de';
+      }
+
+      function normaliseTheme(value) {
+        return value === 'dark' ? 'dark' : 'light';
+      }
+
+      var storedLanguage = null;
+      try {
+        storedLanguage = window.localStorage.getItem('language');
+      } catch (err) {
+        storedLanguage = null;
+      }
+
+      var defaultLanguage = body.dataset.lang || docEl.lang || 'de';
+      if (!storedLanguage && typeof navigator !== 'undefined' && navigator.language) {
+        var navLang = navigator.language.slice(0, 2).toLowerCase();
+        if (navLang === 'en') {
+          defaultLanguage = 'en';
+        }
+      }
+
+      var language = normaliseLanguage(storedLanguage || defaultLanguage);
+
+      var storedTheme = null;
+      var hasManualThemePreference = false;
+      try {
+        storedTheme = window.localStorage.getItem('theme');
+        hasManualThemePreference = storedTheme !== null;
+      } catch (err) {
+        storedTheme = null;
+      }
+
+      var prefersDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+      var theme = normaliseTheme(storedTheme || (prefersDark && prefersDark.matches ? 'dark' : body.dataset.theme || 'light'));
+
+      function getCopy() {
+        return translations[language] || translations.de;
+      }
+
+      function updateThemeToggleLabels() {
+        if (!themeToggle) {
+          return;
+        }
+        var copy = getCopy();
+        var label = theme === 'dark' ? copy.themeToggleToLight : copy.themeToggleToDark;
+        themeToggle.setAttribute('aria-label', label);
+        themeToggle.setAttribute('title', label);
+      }
+
+      function updateLanguageToggle() {
+        if (!languageToggle) {
+          return;
+        }
+        var copy = getCopy();
+        var nextLang = language === 'de' ? 'en' : 'de';
+        var label = language === 'de' ? copy.languageToggleToEnglish : copy.languageToggleToGerman;
+        languageToggle.textContent = nextLang.toUpperCase();
+        languageToggle.setAttribute('aria-label', label);
+        languageToggle.setAttribute('title', label);
+      }
+
+      function applyTheme() {
+        body.dataset.theme = theme;
+        updateThemeToggleLabels();
+      }
+
+      function applyTranslations() {
+        var copy = getCopy();
+        docEl.lang = language;
+        body.dataset.lang = language;
+        document.title = copy.documentTitle;
+        if (localeRefs.name) {
+          localeRefs.name.textContent = copy.name;
+        }
+        if (localeRefs.roleTitle) {
+          localeRefs.roleTitle.textContent = copy.roleTitle;
+        }
+        if (localeRefs.roleLink) {
+          localeRefs.roleLink.innerHTML = copy.roleLink;
+        }
+        if (localeRefs.summary) {
+          localeRefs.summary.innerHTML = copy.summary;
+        }
+        if (localeRefs.saveContact) {
+          localeRefs.saveContact.textContent = copy.saveContact;
+        }
+        if (localeRefs.contactLinkedIn) {
+          localeRefs.contactLinkedIn.textContent = copy.contactLinkedIn;
+        }
+        if (localeRefs.contactEmail) {
+          localeRefs.contactEmail.textContent = copy.contactEmail;
+        }
+        if (localeRefs.contactPhone) {
+          localeRefs.contactPhone.textContent = copy.contactPhone;
+        }
+        if (shareButton) {
+          shareButton.setAttribute('aria-label', copy.shareButton);
+          shareButton.setAttribute('title', copy.shareButton);
+        }
+        updateLanguageToggle();
+        updateThemeToggleLabels();
+      }
+
+      applyTheme();
+      applyTranslations();
+
+      function buildSharePayload(copy) {
+        return {
+          title: copy.shareTitle,
+          text: copy.shareText,
+          url: window.location.href
+        };
+      }
+
+      function fallbackShare(copy) {
+        var composed = copy.shareText + '\n' + window.location.href;
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          navigator.clipboard.writeText(composed).then(function () {
+            window.alert(copy.shareCopySuccess);
+          }).catch(function () {
+            window.alert(copy.shareCopyFallback + '\n' + window.location.href);
+          });
+        } else {
+          window.alert(copy.shareCopyFallback + '\n' + window.location.href);
+        }
+      }
+
+      if (shareButton) {
+        shareButton.addEventListener('click', function () {
+          var copy = getCopy();
+          var payload = buildSharePayload(copy);
+
+          if (navigator.share && typeof navigator.share === 'function') {
+            navigator.share(payload).catch(function (err) {
+              if (err && err.name === 'AbortError') {
+                return;
+              }
+              fallbackShare(copy);
+            });
+          } else {
+            fallbackShare(copy);
+          }
+        });
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          theme = theme === 'dark' ? 'light' : 'dark';
+          hasManualThemePreference = true;
+          try {
+            window.localStorage.setItem('theme', theme);
+          } catch (err) {
+            /* ignore storage errors */
+          }
+          applyTheme();
+        });
+      }
+
+      if (languageToggle) {
+        languageToggle.addEventListener('click', function () {
+          language = language === 'de' ? 'en' : 'de';
+          try {
+            window.localStorage.setItem('language', language);
+          } catch (err) {
+            /* ignore storage errors */
+          }
+          applyTranslations();
+        });
+      }
+
+      if (prefersDark) {
+        var mediaListener = function (event) {
+          if (hasManualThemePreference) {
+            return;
+          }
+          theme = normaliseTheme(event.matches ? 'dark' : 'light');
+          applyTheme();
+        };
+
+        if (typeof prefersDark.addEventListener === 'function') {
+          prefersDark.addEventListener('change', mediaListener);
+        } else if (typeof prefersDark.addListener === 'function') {
+          prefersDark.addListener(mediaListener);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
